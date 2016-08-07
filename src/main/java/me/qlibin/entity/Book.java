@@ -1,5 +1,7 @@
 package me.qlibin.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,8 +15,11 @@ public class Book {
     private String title;
     private String description;
 
+    @JsonManagedReference
     @ManyToOne
     private Author author;
+
+    @JsonManagedReference
     @ManyToOne
     private Publisher publisher;
 
@@ -24,13 +29,11 @@ public class Book {
     public Book() {
     }
 
-    public Book(String isbn, String title, String description, Author author, Publisher publisher, List<Reviewer> reviewers) {
+    public Book(String isbn, String title, Author author, Publisher publisher) {
         this.isbn = isbn;
         this.title = title;
-        this.description = description;
         this.author = author;
         this.publisher = publisher;
-        this.reviewers = reviewers;
     }
 
     public Long getId() {

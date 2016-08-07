@@ -1,5 +1,7 @@
 package me.qlibin.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,8 +15,14 @@ public class Publisher {
     @GeneratedValue
     private Long id;
     private String name;
+
+    @JsonBackReference
     @OneToMany(mappedBy = "publisher")
     private List<Book> books;
+
+    public Publisher(String name) {
+        this.name = name;
+    }
 
     public Publisher() {
     }

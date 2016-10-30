@@ -10,6 +10,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.annotation.Scheduled;
 
 /**
@@ -30,6 +32,7 @@ import org.springframework.scheduling.annotation.Scheduled;
  * this will cause the context to close and an application to shut down.
  * Wrapping the risky code blocks with try/catch is recommended in order to prevent this from happening.
  */
+@Order(Ordered.LOWEST_PRECEDENCE - 15)
 public class StartupRunner implements CommandLineRunner {
 
     private final Log logger = LogFactory.getLog(getClass());

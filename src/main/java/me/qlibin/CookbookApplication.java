@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.test.bookpubstarter.dbcount.EnableDbCounting;
 
 /**
  * @EnableScheduling is not a Spring Boot annotation, but instead is a Spring Context module annotation.
@@ -13,6 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication
 @EnableScheduling
+@EnableDbCounting
 public class CookbookApplication {
 
 	@Bean
